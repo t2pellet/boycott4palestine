@@ -14,7 +14,7 @@ const router = createRouter({
       path: '/about',
       name: 'about',
       component: AboutView,
-      props: (route) => ({ query: route.query.q })
+      props: (route) => ({ query: route.query.query })
     }
   ]
 })

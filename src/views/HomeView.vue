@@ -4,7 +4,7 @@ import SearchCompanies from '../components/SearchCompanies.vue'
 
 <template>
   <div id="home" class="flex flex-col items-center gap-16">
-    <img src="/logo.svg" width="128" alt="Palestine Flag" />
+    <img src="/logo.png" class="h-32" alt="Palestine Flag" />
     <SearchCompanies />
   </div>
 </template>

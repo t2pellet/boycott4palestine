@@ -1,9 +1,13 @@
 export type BoycottEntry = {
   name: string
-  description: string
+  id: number
+  description?: string
   reason: string
   proof: string
-  how: string
-  alternatives: string
   logo: string
+}
+
+export type BoycottName = {
+  name: string
+  id: number
 }

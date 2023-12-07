@@ -6,8 +6,9 @@ import type { BoycottName } from '@/types'
 
 let input: Ref<string> = ref('')
 let names: Ref<BoycottName[]> = ref([])
-let showing = false
 let pending = false
+let hasInput = false
+let showing = false
 
 async function search(event: Event) {
   pending = true
@@ -15,6 +16,7 @@ async function search(event: Event) {
   if (value) {
     names.value = await searchNames(value)
   } else names.value = []
+  hasInput = value
   pending = false
 }
 
@@ -44,7 +46,7 @@ function show() {
         <a class="btn btn-ghost" v-for="name in names" :key="name" :href="`/boycott/${name.id}`">
           {{ name.name }}
         </a>
-        <div v-if="input && !pending && !names.length" class="mt-4 text-success text-center">
+        <div v-if="hasInput && !pending && !names.length" class="mt-4 text-success text-center">
           No boycotted company found
         </div>
         <p v-if="pending">Pending</p>

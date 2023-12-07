@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import SearchCompanies from '../components/SearchCompanies.vue'
+import SearchCompanies from '../components/BoycottSearch.vue'
 </script>
 
 <template>

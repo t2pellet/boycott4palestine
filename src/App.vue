@@ -4,7 +4,9 @@ import { RouterView } from 'vue-router'
 
 <template>
   <main class="relative mt-32 mb-4">
-    <RouterView />
+    <Suspense>
+      <RouterView />
+    </Suspense>
   </main>
 </template>
 

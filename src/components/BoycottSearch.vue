@@ -7,30 +7,31 @@ import _debounce from 'lodash/debounce'
 
 let input: Ref<string> = ref('')
 let names: Ref<BoycottName[]> = ref([])
-let showing = ref(false)
-let pending = false
-let hasInput = false
+let state: Ref<{ showing: boolean; pending: boolean; empty: boolean }> = ref({
+  showing: false,
+  pending: false,
+  empty: true
+})
 
 const search = _debounce(function (searchValue: string) {
   if (searchValue) {
-    pending = true
+    state.value.pending = true
     searchNames(searchValue).then((value) => {
       names.value = value
-      pending = false
+      state.value.pending = false
     })
   } else names.value = []
-  hasInput = !!searchValue
+  state.value.empty = !searchValue
 }, 100)
 
 function hide() {
-  if (names.value.length) {
-    console.log('hide')
-    showing.value = false
+  if (state.value.empty || names.value.length) {
+    state.value.showing = false
   }
 }
 
 function show() {
-  showing.value = true
+  state.value.showing = true
 }
 </script>
 
@@ -45,12 +46,25 @@ function show() {
         @focus="show"
         class="input input-bordered w-full"
       />
-      <div v-if="showing" class="absolute bg-base-100 w-full flex flex-col gap-2 rounded-lg p-2">
-        <a class="btn btn-ghost" v-for="name in names" :key="name" :href="`/boycott/${name.id}`">
-          {{ name.name }}
-        </a>
-        <div v-if="hasInput && !pending && !names.length" class="mt-4 text-success text-center">
-          No boycotted company found
+      <div class="relative bottom-[-0.25rem] h-0">
+        <div
+          v-if="state.showing && !state.empty"
+          class="absolute bg-base-200 w-full flex flex-col gap-2 rounded-lg p-2"
+        >
+          <a
+            class="btn btn-ghost min-h-[2rem] h-8"
+            v-for="name in names"
+            :key="name"
+            :href="`/boycott/${name.id}`"
+          >
+            {{ name.name }}
+          </a>
+          <div
+            v-if="!state.empty && !state.pending && !names.length"
+            class="text-success text-center"
+          >
+            No boycotted company found
+          </div>
         </div>
       </div>
     </div>

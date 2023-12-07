@@ -3,6 +3,5 @@
 @tailwind utilities;
 
 #app {
-  padding-left: 4rem;
-  padding-right: 4rem;
+  height: 100vh;
 }

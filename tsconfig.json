@@ -9,6 +9,6 @@
     }
   ],
   "compilerOptions": {
-    "noImplicitThis": false
+    "noImplicitThis": false,
   }
 }

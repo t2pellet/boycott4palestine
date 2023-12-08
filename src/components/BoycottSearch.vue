@@ -22,7 +22,7 @@ const search = _debounce(function (searchValue: string) {
     })
   } else names.value = []
   state.value.empty = !searchValue
-}, 100)
+}, 50)
 
 function hide() {
   if (state.value.empty || names.value.length) {

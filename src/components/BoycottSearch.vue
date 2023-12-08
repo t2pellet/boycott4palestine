@@ -46,9 +46,12 @@ function show() {
         @focus="show"
         class="input input-bordered w-full"
       />
-      <div class="relative bottom-[-0.25rem] h-0">
+      <div
+        v-if="state.showing && (!state.pending || names.length)"
+        class="relative bottom-[-0.25rem] h-0"
+      >
         <div
-          v-if="state.showing && !state.empty"
+          v-if="names.length"
           class="absolute bg-base-200 w-full flex flex-col gap-2 rounded-lg p-2"
         >
           <a

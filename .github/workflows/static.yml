@@ -40,7 +40,7 @@ jobs:
       - name: Build
         run: npm run build
         env:
-          VITE_API_ENDPOINT: http://localhost:8080/api
+          VITE_API_ENDPOINT: https://palestine-bff.tenzin.live/api
       - name: Setup Pages
         uses: actions/configure-pages@v3
       - name: Upload artifact

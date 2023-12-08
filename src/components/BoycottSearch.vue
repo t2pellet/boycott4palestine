@@ -47,11 +47,11 @@ function show() {
         class="input input-bordered w-full"
       />
       <div
-        v-if="state.showing && (!state.pending || names.length)"
+        v-if="state.showing && (!state.pending || !state.empty)"
         class="relative bottom-[-0.25rem] h-0"
       >
         <div
-          v-if="names.length"
+          v-if="!state.empty"
           class="absolute bg-base-200 w-full flex flex-col gap-2 rounded-lg p-2"
         >
           <a
@@ -62,10 +62,7 @@ function show() {
           >
             {{ name.name }}
           </a>
-          <div
-            v-if="!state.empty && !state.pending && !names.length"
-            class="text-success text-center"
-          >
+          <div v-if="!state.empty && !names.length" class="text-success text-center">
             No boycotted company found
           </div>
         </div>

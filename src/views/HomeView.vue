@@ -1,29 +1,29 @@
 <script setup lang="ts">
-import SearchCompanies from '../components/BoycottSearch.vue'
-import { fetchAll } from '@/api'
+import { fetchAll } from '@/util/api'
 import BoycottCard from '@/components/BoycottCard.vue'
+import BoycottSearch from '@/components/BoycottSearch.vue'
 
 const entries = await fetchAll()
 </script>
 
 <template>
-  <div id="home" class="relative w-full h-full flex flex-col items-center justify-center">
-    <div class="flex flex-col items-center">
-      <img src="/logo.png" class="h-32 mb-4 shadow-xl rounded-box" alt="Palestine Flag" />
+  <div id="home" class="h-full">
+    <div class="flex flex-col justify-end items-center h-1/3">
+      <img src="/logo.png" class="h-32 shadow-xl rounded-box mb-4" alt="Palestine Flag" />
       <h1 class="text-3xl text-primary text-center font-extrabold">Boycott for Palestine</h1>
       <div class="divider" />
     </div>
-    <div class="flex flex-col items-center justify-center gap-6 w-full">
+    <div class="flex flex-col items-center h-2/3 gap-8 pt-8">
       <div>
-        <h2 class="text-lg mb-2 text-center font-bold">Search For a Company</h2>
-        <SearchCompanies />
+        <h2 class="text-xl text-center font-bold mb-2">Check for Boycott</h2>
+        <BoycottSearch :entries="entries" />
       </div>
-      <div class="flex flex-col items-center w-full">
-        <h2 class="text-lg mb-2 text-center font-bold">Browse Companies</h2>
+      <div class="flex flex-col items-center flex-grow overflow-hidden">
+        <h2 class="text-xl text-center font-bold mb-4">List of Shame</h2>
         <div
-          class="carousel carousel-center rounded-box w-screen max-w-screen-md items-center h-72 gap-3 px-2"
+          class="carousel carousel-center rounded-box max-w-screen-lg w-screen space-x-4 flex-grow"
         >
-          <BoycottCard v-for="entry in entries" :entry="entry" :key="entry.id" />
+          <BoycottCard v-for="entry in entries" :key="`card-${entry.id}`" :entry="entry" />
         </div>
       </div>
     </div>

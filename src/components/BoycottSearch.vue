@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { type Ref, ref } from 'vue'
 import { OnClickOutside } from '@vueuse/components'
-import { searchNames } from '@/api'
 import type { BoycottName } from '@/types'
-import _debounce from 'lodash/debounce'
+import { search } from '@/util/filter'
+
+const { entries } = defineProps<{ entries: BoycottName[] }>()
 
 let input: Ref<string> = ref('')
 let names: Ref<BoycottName[]> = ref([])
@@ -13,16 +14,17 @@ let state: Ref<{ showing: boolean; pending: boolean; empty: boolean }> = ref({
   empty: true
 })
 
-const search = _debounce(function (searchValue: string) {
-  if (searchValue) {
-    state.value.pending = true
-    searchNames(searchValue).then((value) => {
-      names.value = value
-      state.value.pending = false
-    })
-  } else names.value = []
-  state.value.empty = !searchValue
-}, 50)
+function updateSearch(e: Event) {
+  const value = (e.target as HTMLInputElement).value
+  if (!value) {
+    names.value = []
+    state.value.empty = true
+    return
+  }
+  const result = search(value, entries)
+  names.value = result
+  state.value.empty = !result.length
+}
 
 function hide() {
   if (state.value.empty || names.value.length) {
@@ -40,9 +42,9 @@ function show() {
     <div class="w-72 relative">
       <input
         type="text"
-        placeholder="Type here"
+        placeholder="Company name"
         v-model="input"
-        @keyup="(e) => search((e.target as HTMLInputElement).value)"
+        @keyup="updateSearch"
         @focus="show"
         class="input input-bordered w-full"
       />

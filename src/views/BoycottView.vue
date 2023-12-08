@@ -1,42 +1,44 @@
 <script setup lang="ts">
-import { fetchBoycottEntry } from '@/api'
+import { fetch } from '@/util/api'
 import { useRoute } from 'vue-router'
 
 const route = useRoute()
-const boycottEntry = await fetchBoycottEntry(Number(route.params.id))
+const id = Number(route.params.id)
+const boycottEntry = await fetch(id)
 </script>
 
 <template>
-  <div class="h-full grid place-items-center max-w-screen-lg mx-auto">
-    <div class="flex flex-col items-center gap-6 text-center h-96">
+  <div id="boycott" class="h-full">
+    <div id="logo" class="flex flex-col h-1/3 justify-end items-center">
       <img
-        class="bg-base-200 rounded-box h-[128px]"
+        class="h-32 shadow-xl rounded-box mb-4"
         v-bind:src="boycottEntry.logo"
-        width="128"
         alt="Company Logo"
       />
       <h1 class="text-primary font-extrabold text-3xl">{{ boycottEntry.name }}</h1>
-      <div v-if="boycottEntry.description">
-        <h2 class="text-secondary font-bold text-xl">Description</h2>
-        <p class="text-sm">
-          {{ boycottEntry.description }}
-        </p>
-      </div>
-      <div>
-        <h2 class="text-secondary font-bold text-xl">Reason</h2>
-        <p class="text-sm">
+      <div class="divider" />
+    </div>
+    <div id="content" class="flex flex-col items-center text-center h-2/3 gap-8 pt-8">
+      <div id="reason">
+        <h2 class="text-secondary font-bold text-xl mb-2">Reason</h2>
+        <p class="text-sm max-w-screen-lg">
           {{ boycottEntry.reason }}
         </p>
       </div>
-      <div>
-        <h2 class="text-secondary font-bold text-xl">Proof</h2>
-        <a class="link text-sm" v-bind:href="boycottEntry.proof">
-          {{ boycottEntry.proof }}
+      <div id="actions" class="flex flex-col gap-4">
+        <a class="btn btn-primary btn-wide" v-bind:href="boycottEntry.proof" target="_blank">
+          Proof
         </a>
+        <RouterLink id="back" to="/" class="btn btn-outline btn-wide">Back</RouterLink>
       </div>
     </div>
-    <RouterLink to="/" class="mt-8 w-64 block mx-auto">
-      <a class="btn btn-outline w-64 mx-auto">Back</a>
-    </RouterLink>
   </div>
 </template>
+
+<style scoped>
+.center-children {
+  display: flex;
+  align-content: center;
+  place-items: center;
+}
+</style>

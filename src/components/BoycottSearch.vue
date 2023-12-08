@@ -3,6 +3,8 @@ import { type Ref, ref } from 'vue'
 import { OnClickOutside } from '@vueuse/components'
 import type { BoycottName } from '@/types'
 import { search } from '@/util/filter'
+import { useRouter } from 'vue-router'
+const router = useRouter()
 
 const { entries } = defineProps<{ entries: BoycottName[] }>()
 
@@ -13,6 +15,13 @@ let state: Ref<{ showing: boolean; pending: boolean; empty: boolean }> = ref({
   pending: false,
   empty: true
 })
+
+function submit() {
+  if (names.value.length) {
+    const result = names.value[0].id
+    router.push(`/boycott/${result}`)
+  }
+}
 
 function updateSearch(e: Event) {
   const value = (e.target as HTMLInputElement).value
@@ -44,6 +53,7 @@ function show() {
         type="text"
         placeholder="Company name"
         v-model="input"
+        @keyup.enter="submit"
         @keyup="updateSearch"
         @focus="show"
         class="input input-bordered w-full"

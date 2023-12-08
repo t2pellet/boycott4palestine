@@ -7,10 +7,10 @@ const boycottEntry = await fetchBoycottEntry(Number(route.params.id))
 </script>
 
 <template>
-  <div class="h-full grid place-items-center">
+  <div class="h-full grid place-items-center max-w-screen-lg mx-auto">
     <div class="flex flex-col items-center gap-6 text-center h-96">
       <img
-        class="bg-neutral rounded-xl h-[128px]"
+        class="bg-base-200 rounded-box h-[128px]"
         v-bind:src="boycottEntry.logo"
         width="128"
         alt="Company Logo"

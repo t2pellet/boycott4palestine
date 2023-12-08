@@ -52,7 +52,7 @@ function show() {
       >
         <div
           v-if="!state.empty"
-          class="absolute bg-base-200 w-full flex flex-col gap-2 rounded-lg p-2"
+          class="absolute bg-base-200 w-full flex flex-col gap-2 rounded-lg p-2 z-20"
         >
           <a
             class="btn btn-ghost min-h-[2rem] h-8"

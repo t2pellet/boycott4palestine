@@ -17,4 +17,9 @@ async function fetchBoycottEntry(id: number): Promise<BoycottEntry> {
   return result.data
 }
 
-export { searchNames, fetchBoycottEntry }
+async function fetchAll(): Promise<BoycottEntry[]> {
+  const result = await client.get('boycott')
+  return result.data
+}
+
+export { searchNames, fetchBoycottEntry, fetchAll }

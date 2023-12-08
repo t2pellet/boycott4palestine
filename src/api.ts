@@ -17,4 +17,4 @@ async function fetchBoycottEntry(id: number): Promise<BoycottEntry> {
   return result.data
 }
 
-export { fetchNames, searchNames, fetchBoycottEntry }
+export { searchNames, fetchBoycottEntry }

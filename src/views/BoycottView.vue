@@ -3,7 +3,7 @@ import { fetchBoycottEntry } from '@/api'
 import { useRoute } from 'vue-router'
 
 const route = useRoute()
-const boycottEntry = await fetchBoycottEntry(route.params.id)
+const boycottEntry = await fetchBoycottEntry(Number(route.params.id))
 </script>
 
 <template>

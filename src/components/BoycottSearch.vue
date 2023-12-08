@@ -42,7 +42,7 @@ function show() {
         type="text"
         placeholder="Type here"
         v-model="input"
-        @keyup="(e) => search(e.target.value)"
+        @keyup="(e) => search((e.target as HTMLInputElement).value)"
         @focus="show"
         class="input input-bordered w-full"
       />
@@ -54,7 +54,7 @@ function show() {
           <a
             class="btn btn-ghost min-h-[2rem] h-8"
             v-for="name in names"
-            :key="name"
+            :key="name.name"
             :href="`/boycott/${name.id}`"
           >
             {{ name.name }}

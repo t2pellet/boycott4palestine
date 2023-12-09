@@ -1,9 +1,7 @@
 <script setup lang="ts">
-import { fetchAll } from '@/util/api'
 import BoycottCard from '@/components/BoycottCard.vue'
 import BoycottSearch from '@/components/BoycottSearch.vue'
-
-const entries = await fetchAll()
+import BoycottCarousel from '@/components/BoycottCarousel.vue'
 </script>
 
 <template>
@@ -16,15 +14,11 @@ const entries = await fetchAll()
     <div class="flex flex-col items-center h-2/3 gap-8 pt-8">
       <div>
         <h2 class="text-xl text-center font-bold mb-2">Check for Boycott</h2>
-        <BoycottSearch :entries="entries" />
+        <BoycottSearch />
       </div>
       <div class="flex flex-col items-center flex-grow overflow-hidden">
         <h2 class="text-xl text-center font-bold mb-4">List of Shame</h2>
-        <div
-          class="carousel carousel-center rounded-box max-w-screen-lg w-screen space-x-4 flex-grow"
-        >
-          <BoycottCard v-for="entry in entries" :key="`card-${entry.id}`" :entry="entry" />
-        </div>
+        <BoycottCarousel />
       </div>
     </div>
   </div>

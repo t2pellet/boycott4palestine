@@ -1,12 +1,14 @@
 <script setup lang="ts">
-import { type Ref, ref } from 'vue'
+import { onBeforeMount, type Ref, ref } from 'vue'
 import { OnClickOutside } from '@vueuse/components'
 import type { BoycottName } from '@/types'
 import { search } from '@/util/filter'
 import { useRouter } from 'vue-router'
+import { fetchNames } from '@/util/api'
+
 const router = useRouter()
 
-const { entries } = defineProps<{ entries: BoycottName[] }>()
+const entries = ref<BoycottName[]>([])
 
 let input: Ref<string> = ref('')
 let names: Ref<BoycottName[]> = ref([])
@@ -14,6 +16,10 @@ let state: Ref<{ showing: boolean; pending: boolean; empty: boolean }> = ref({
   showing: false,
   pending: false,
   empty: true
+})
+
+onBeforeMount(() => {
+  fetchNames().then((names) => (entries.value = names))
 })
 
 function submit() {
@@ -29,10 +35,10 @@ function updateSearch(e: Event) {
     names.value = []
     state.value.empty = true
     return
-  }
-  const result = search(value, entries)
-  names.value = result
-  state.value.empty = !result.length
+  } else state.value.empty = false
+  names.value = search(value, entries.value)
+  console.log(JSON.stringify(state.value))
+  console.log(names.value)
 }
 
 function hide() {

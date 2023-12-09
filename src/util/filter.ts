@@ -1,4 +1,4 @@
-import { WRatio } from 'fuzzball'
+import { ratio } from 'fuzzball'
 import type { BoycottName } from '@/types'
 
 type BoycottSearchName = BoycottName & {
@@ -6,13 +6,13 @@ type BoycottSearchName = BoycottName & {
 }
 
 const RESULT_COUNT = 5
-const RATIO_CUTOFF = 75
+const RATIO_CUTOFF = 90
 
 function search(query: string, names: BoycottName[]): BoycottName[] {
   const ratioNames: BoycottSearchName[] = names.map(({ name, id }) => ({
     name,
     id,
-    ratio: WRatio(query, name.slice(0, query.length))
+    ratio: ratio(query, name.slice(0, query.length))
   }))
   return ratioNames
     .filter((name) => name.ratio >= RATIO_CUTOFF)

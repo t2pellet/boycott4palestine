@@ -6,7 +6,7 @@ defineProps<{ entry: BoycottEntry }>()
 
 <template>
   <a
-    class="card bg-base-200/20 shadow-xl w-48 h-64 carousel-item hover:scale-105 transition-transform duration-300"
+    class="card bg-base-200/20 shadow-xl w-48 h-64 carousel-item focus:scale-105 hover:scale-105 transition-transform duration-300 transition-all"
     :href="`/boycott/${entry.id}`"
   >
     <div class="card-body text-center items-center pt-3 pb-4">

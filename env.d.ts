@@ -6,3 +6,7 @@ declare global {
     }
   }
 }
+
+declare module 'barcoder' {
+  function validate(barcode: string): boolean
+}

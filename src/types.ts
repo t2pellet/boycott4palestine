@@ -11,3 +11,12 @@ export type BoycottName = {
   name: string
   id: number
 }
+
+export type BoycottBarcode = {
+  product: string
+  company: string
+  boycott: boolean
+  reason?: string
+  logo?: string
+  proof?: string
+}

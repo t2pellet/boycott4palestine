@@ -19,9 +19,11 @@
     "@vueuse/components": "^10.7.0",
     "@vueuse/core": "^10.7.0",
     "axios": "^1.6.2",
+    "barcoder": "^2.0.1",
     "fuzzball": "^2.1.2",
     "lodash.debounce": "^4.0.8",
     "vue": "^3.3.4",
+    "vue-barcode-reader": "^1.0.3",
     "vue-router": "^4.2.5"
   },
   "devDependencies": {
@@ -29,6 +31,7 @@
     "@tsconfig/node18": "^18.2.2",
     "@types/lodash.debounce": "^4.0.9",
     "@types/node": "^20.10.4",
+    "@types/vue-barcode-reader": "^0.0.3",
     "@vitejs/plugin-vue": "^4.4.0",
     "@vitejs/plugin-vue-jsx": "^3.0.2",
     "@vue/eslint-config-prettier": "^8.0.0",

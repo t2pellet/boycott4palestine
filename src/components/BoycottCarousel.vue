@@ -3,12 +3,6 @@ import BoycottCard from '@/components/BoycottCard.vue'
 import { useEntries } from '@/api'
 
 const { data: entries, isLoading } = useEntries()
-useEntries()
-useEntries()
-useEntries()
-useEntries()
-useEntries()
-useEntries()
 </script>
 
 <template>

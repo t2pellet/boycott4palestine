@@ -11,8 +11,7 @@ function useEntry(id: number): UseQueryReturnType<BoycottEntry, any> {
     queryFn: async () => {
       const result = await client.get(`boycott/${id}`)
       return result.data as BoycottEntry
-    },
-    refetchOnMount: false
+    }
   })
 }
 
@@ -22,8 +21,7 @@ function useEntries(): UseQueryReturnType<BoycottEntry[], any> {
     queryFn: async () => {
       const result = await client.get('boycott')
       return result.data as BoycottEntry[]
-    },
-    refetchOnMount: false
+    }
   })
 }
 
@@ -33,8 +31,7 @@ function useNames(): UseQueryReturnType<BoycottName[], any> {
     queryFn: async () => {
       const result = await client.get('names')
       return result.data as BoycottName[]
-    },
-    refetchOnMount: false
+    }
   })
 }
 

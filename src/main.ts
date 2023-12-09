@@ -13,7 +13,8 @@ const queryOptions: VueQueryPluginOptions = {
     defaultOptions: {
       queries: {
         gcTime: 1000 * 60 * 60 * 24,
-        staleTime: 1000 * 60 * 60
+        staleTime: 1000 * 60 * 60,
+        refetchOnMount: false
       }
     }
   },

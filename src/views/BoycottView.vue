@@ -33,7 +33,12 @@ const { data: boycottEntry } = useEntry(id)
         <p class="text-sm max-w-screen-lg mx-auto" v-if="boycottEntry">
           {{ boycottEntry.reason }}
         </p>
-        <div v-else class="skeleton w-full h-4 mb-2" v-for="idx in 5" :key="idx"></div>
+        <div
+          v-else
+          class="skeleton w-full max-w-screen-lg h-4 mb-2"
+          v-for="idx in 5"
+          :key="idx"
+        ></div>
       </div>
       <div id="actions" class="flex flex-col gap-4">
         <a :href="boycottEntry?.proof" target="_blank">

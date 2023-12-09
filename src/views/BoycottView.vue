@@ -1,19 +1,11 @@
 <script setup lang="ts">
-import { fetch } from '@/util/api'
+import { useEntry } from '@/api'
 import { useRoute } from 'vue-router'
-import { onBeforeMount, ref } from 'vue'
-import type { BoycottEntry } from '@/types'
 
 const route = useRoute()
 const id = Number(route.params.id)
 
-const boycottEntry = ref<BoycottEntry>()
-
-onBeforeMount(() =>
-  fetch(id).then((result) => {
-    boycottEntry.value = result
-  })
-)
+const { data: boycottEntry } = useEntry(id)
 </script>
 
 <template>
@@ -38,7 +30,7 @@ onBeforeMount(() =>
     >
       <div id="reason" class="w-full">
         <h2 class="text-secondary font-bold text-xl mb-2">Reason</h2>
-        <p class="text-sm max-w-screen-lg" v-if="boycottEntry">
+        <p class="text-sm max-w-screen-lg mx-auto" v-if="boycottEntry">
           {{ boycottEntry.reason }}
         </p>
         <div v-else class="skeleton w-full h-4 mb-2" v-for="idx in 5" :key="idx"></div>
@@ -53,10 +45,4 @@ onBeforeMount(() =>
   </div>
 </template>
 
-<style scoped>
-.center-children {
-  display: flex;
-  align-content: center;
-  place-items: center;
-}
-</style>
+<style scoped></style>

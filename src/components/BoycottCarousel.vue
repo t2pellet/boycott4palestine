@@ -1,23 +1,19 @@
 <script setup lang="ts">
 import BoycottCard from '@/components/BoycottCard.vue'
-import type { BoycottEntry } from '@/types'
-import { onBeforeMount, ref } from 'vue'
-import { fetchAll } from '@/util/api'
+import { useEntries } from '@/api'
 
-const entries = ref<BoycottEntry[]>([])
-let loaded = ref(false)
-
-onBeforeMount(() => {
-  fetchAll().then((data) => {
-    entries.value = data
-    loaded.value = true
-  })
-})
+const { data: entries, isLoading } = useEntries()
+useEntries()
+useEntries()
+useEntries()
+useEntries()
+useEntries()
+useEntries()
 </script>
 
 <template>
   <div
-    v-if="loaded"
+    v-if="!isLoading"
     class="carousel carousel-center rounded-box max-w-screen-lg w-screen space-x-4 flex-grow"
   >
     <BoycottCard v-for="entry in entries" :key="`card-${entry.id}`" :entry="entry" />

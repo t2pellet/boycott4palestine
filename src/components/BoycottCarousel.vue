@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import BoycottCard from '@/components/BoycottCard.vue'
-import { useEntries } from '@/api'
+import { useEntries } from '@/api/query'
 
 const { data: entries, isLoading } = useEntries()
 </script>

@@ -4,7 +4,7 @@ import { OnClickOutside } from '@vueuse/components'
 import type { BoycottName } from '@/types'
 import { search } from '@/util/filter'
 import { useRouter } from 'vue-router'
-import { useNames } from '@/api'
+import { useNames } from '@/api/query'
 
 const router = useRouter()
 

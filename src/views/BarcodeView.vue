@@ -11,7 +11,7 @@ const router = useRouter()
 function decode(barcode: string) {
   if (validate(barcode)) {
     router.push(`/scan-result?barcode=${barcode}`)
-  }
+  } else router.push('/')
   result.value = barcode
 }
 

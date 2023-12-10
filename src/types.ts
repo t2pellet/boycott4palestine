@@ -20,3 +20,9 @@ export type BoycottBarcode = {
   logo?: string
   proof?: string
 }
+
+export type BarcodeData = {
+  product: string
+  company: string
+  barcode: string
+}

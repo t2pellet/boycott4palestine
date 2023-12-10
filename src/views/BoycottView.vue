@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useEntry } from '@/api'
+import { useEntry } from '@/api/query'
 import { useRoute } from 'vue-router'
 
 const route = useRoute()

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useBarcode } from '@/api'
+import { useBarcode } from '@/api/query'
 import { useRoute, useRouter } from 'vue-router'
 import { watchEffect } from 'vue'
 
@@ -7,10 +7,17 @@ const route = useRoute()
 const router = useRouter()
 const barcode = route.query.barcode as string
 
-const { data: barcodeData, isError } = useBarcode(barcode)
+const { data: barcodeData, isError, error } = useBarcode(barcode)
 
 watchEffect(() => {
-  if (isError.value) router.replace('/')
+  if (isError.value) {
+    const err = error.value.toJSON()
+    console.log('err: ' + err.status)
+    if (err.status === 404) {
+      console.log('add')
+      router.replace(`/add-scan?barcode=${barcode}`)
+    } else router.replace('/')
+  }
 })
 </script>
 
@@ -42,13 +49,13 @@ watchEffect(() => {
         >
           {{ barcodeData.boycott ? 'Boycotted' : 'Not Boycotted' }}
         </h2>
-        <div v-else class="skeleton w-full max-w-screen-lg h-8 mb-8"></div>
+        <div v-else class="skeleton w-full max-w-screen-lg h-8 mb-8 mx-auto"></div>
         <p class="text-sm max-w-screen-lg mx-auto" v-if="barcodeData">
           {{ barcodeData.boycott ? barcodeData.reason : '' }}
         </p>
         <div
           v-else
-          class="skeleton w-full max-w-screen-lg h-4 mb-2"
+          class="skeleton w-full max-w-screen-lg h-4 mb-2 mx-auto"
           v-for="idx in 5"
           :key="idx"
         ></div>
@@ -57,7 +64,7 @@ watchEffect(() => {
         <a v-if="barcodeData?.boycott" :href="barcodeData.proof" target="_blank">
           <button class="btn btn-primary btn-wide">Proof</button>
         </a>
-        <div v-else-if="!barcodeData" class="skeleton w-64 h-16" />
+        <div v-else-if="!barcodeData" class="skeleton w-64 h-12" />
         <RouterLink id="scan" to="/scan" class="btn btn-primary btn-wide">Scan More</RouterLink>
         <RouterLink id="home" to="/" class="btn btn-outline btn-wide">Home</RouterLink>
       </div>

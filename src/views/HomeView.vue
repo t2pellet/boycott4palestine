@@ -4,7 +4,7 @@ import BoycottCarousel from '@/components/BoycottCarousel.vue'
 </script>
 
 <template>
-  <div id="home" class="flex flex-col h-full gap-8">
+  <div id="home" class="flex flex-col h-full gap-6">
     <div class="flex flex-col justify-end items-center h-1/3">
       <img src="/logo.png" class="h-32 shadow-xl rounded-box mb-4" alt="Palestine Flag" />
       <h1 class="text-3xl text-primary text-center font-extrabold">Boycott for Palestine</h1>

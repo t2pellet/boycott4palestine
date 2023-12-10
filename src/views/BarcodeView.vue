@@ -22,24 +22,20 @@ function load() {
 </script>
 
 <template>
-  <div id="barcode" class="h-full">
-    <div class="flex flex-col justify-end items-center h-1/3">
-      <img src="/logo.png" class="h-32 shadow-xl rounded-box mb-4" alt="Palestine Flag" />
+  <div id="barcode" class="flex flex-col py-8 items-center h-full">
+    <img src="/logo.png" class="h-32 shadow-xl rounded-box mb-4" alt="Palestine Flag" />
+    <div class="hidden sm:inline-block w-full">
       <h1 class="text-3xl text-primary text-center font-extrabold">Boycott for Palestine</h1>
-      <div class="divider" />
+      <div class="divider w-full" />
     </div>
-    <div
-      class="relative flex flex-col items-center h-2/3 w-full justify-between max-w-[36rem] mx-auto py-8"
-    >
-      <div v-if="!loaded" class="skeleton w-full h-full mb-16 flex-grow" />
+    <div class="sm:max-w-lg rounded-box w-full h-fit overflow-hidden">
+      <div v-if="!loaded" class="skeleton h-[32rem] max-w-sm sm:max-w-none sm:h-96 mx-auto" />
       <StreamBarcodeReader
-        class="w-fit h-fit max-h-full"
-        v-if="!result"
+        class="w-fit h-fit"
         @decode="decode"
         @loaded="load"
       ></StreamBarcodeReader>
-      <div v-else>Please Wait...</div>
-      <RouterLink class="btn btn-outline btn-wide" to="/">Back</RouterLink>
     </div>
+    <RouterLink class="absolute bottom-8 btn btn-outline btn-wide" to="/">Back</RouterLink>
   </div>
 </template>

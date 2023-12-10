@@ -15,9 +15,9 @@ import BoycottCarousel from '@/components/BoycottCarousel.vue'
         <h2 class="text-xl text-center font-bold mb-2">Check for Boycott</h2>
         <BoycottSearch />
       </div>
-      <a class="btn btn-primary btn-wide max-w-full">
-        <RouterLink to="/scan"> Scan for Boycott </RouterLink>
-      </a>
+      <RouterLink class="btn btn-primary btn-wide max-w-full" to="/scan">
+        Scan for Boycott
+      </RouterLink>
       <div class="flex flex-col items-center flex-grow overflow-hidden">
         <h2 class="text-xl text-center font-bold mb-2">List of Shame</h2>
         <BoycottCarousel />

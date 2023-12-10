@@ -19,6 +19,7 @@ export type BoycottBarcode = {
   reason?: string
   logo?: string
   proof?: string
+  id?: number
 }
 
 export type BarcodeData = {

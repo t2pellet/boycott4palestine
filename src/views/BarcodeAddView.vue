@@ -8,7 +8,7 @@ import BarcodeAddForm from '@/components/BarcodeAddForm.vue'
 const route = useRoute()
 const router = useRouter()
 const barcode = route.query.barcode as string
-const { mutate: addBarcode, isSuccess, isPending } = useAddBarcode(barcode)
+const { mutate: addBarcode, isSuccess, isPending } = useAddBarcode()
 
 watchEffect(() => {
   if (!validate(barcode)) {

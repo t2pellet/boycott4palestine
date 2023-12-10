@@ -1,5 +1,5 @@
 import axios from 'axios'
-import type { BoycottBarcode, BoycottEntry, BoycottName } from '@/types'
+import type { BarcodeCheck, BoycottBarcode, BoycottEntry, BoycottName } from '@/types'
 import { useQuery, type UseQueryReturnType } from '@tanstack/vue-query'
 
 const client = axios.create({
@@ -46,4 +46,13 @@ function useBarcode(barcode: string): UseQueryReturnType<BoycottBarcode, any> {
   })
 }
 
-export { useEntry, useEntries, useNames, useBarcode }
+function useCheckBarcode(barcode: string): UseQueryReturnType<BarcodeCheck, any> {
+  return useQuery({
+    queryKey: ['checkBarcode', barcode],
+    queryFn: async () => {
+      const result = await client.get(`/barcode/check/${barcode}`)
+    }
+  })
+}
+
+export { useEntry, useEntries, useNames, useBarcode, useCheckBarcode }

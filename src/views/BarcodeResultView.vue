@@ -17,6 +17,8 @@ watchEffect(() => {
       console.log('add')
       router.replace(`/add-scan?barcode=${barcode}`)
     } else router.replace('/')
+  } else if (barcodeData.value && !barcodeData.value.company.length) {
+    router.replace(`/fix-scan?barcode=${barcode}`)
   }
 })
 </script>

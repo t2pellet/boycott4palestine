@@ -1,4 +1,4 @@
-import { useMutation, type UseMutationReturnType } from '@tanstack/vue-query'
+import { useMutation, type UseMutationReturnType, useQueryClient } from '@tanstack/vue-query'
 import { validate } from 'barcoder'
 import axios from 'axios'
 import type { BarcodeData } from '@/types'
@@ -15,8 +15,25 @@ function useAddBarcode(): UseMutationReturnType<number, any, BarcodeData, any> {
         return result.status
       }
       return 400
+    },
+    onSuccess: () => {
+      const queryClient = useQueryClient()
+      queryClient.invalidateQueries({ queryKey: ['checkBarcode'] })
+      queryClient.invalidateQueries({ queryKey: ['barcode'] })
     }
   })
 }
 
-export { useAddBarcode }
+function useFixBarcode(): UseMutationReturnType<number, any, BarcodeData, any> {
+  return useMutation({
+    mutationFn: async (barcode: BarcodeData) => {
+      if (validate(barcode.barcode)) {
+        const result = await client.patch(`/barcode/${barcode.barcode}?company=${barcode.company}`)
+        return result.status
+      }
+      return 400
+    }
+  })
+}
+
+export { useAddBarcode, useFixBarcode }

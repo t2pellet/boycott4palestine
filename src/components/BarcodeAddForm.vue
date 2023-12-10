@@ -5,6 +5,8 @@ let product = ''
 const props = defineProps<{
   submit: (company: string, product: string) => void
   loading: boolean
+  showProduct: boolean
+  text: string
 }>()
 
 function onSubmit() {
@@ -23,7 +25,7 @@ function onSubmit() {
       class="absolute h-full bg-base-200/20 loading loading-ring loading-lg"
     />
     <h2 class="text-lg font-bold text-secondary text-center">
-      We don't have that barcode. Let's fix that!
+      {{ $props.text }}
     </h2>
     <div class="form-control">
       <label for="barcodeCompany" class="label-text text-left">Company</label>
@@ -36,8 +38,8 @@ function onSubmit() {
         minlength="4"
       />
     </div>
-    <div class="form-control">
-      <label for="barcodeCompany" class="label-text text-left">Product</label>
+    <div class="form-control" v-if="$props.showProduct">
+      <label for="barcodeProduct" class="label-text text-left">Product</label>
       <input
         id="barcodeProduct"
         class="input input-bordered"

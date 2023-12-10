@@ -26,3 +26,8 @@ export type BarcodeData = {
   company: string
   barcode: string
 }
+
+export type BarcodeCheck = {
+  barcode: string
+  cached: boolean
+}

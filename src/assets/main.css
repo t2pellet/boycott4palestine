@@ -6,4 +6,9 @@
   position: relative;
   height: 100vh;
   width: 100vw;
+  max-height: -webkit-fill-available;
+
+  @media not all and (min-resolution: 0.001dpcm) {
+    height: 100dvh;
+  }
 }

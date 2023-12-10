@@ -39,7 +39,7 @@ function load() {
         @loaded="load"
       ></StreamBarcodeReader>
       <div v-else>Please Wait...</div>
-      <a class="btn btn-outline btn-wide" href="/">Back</a>
+      <RouterLink class="btn btn-outline btn-wide" to="/">Back</RouterLink>
     </div>
   </div>
 </template>

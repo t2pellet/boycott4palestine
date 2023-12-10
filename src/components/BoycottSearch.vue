@@ -50,7 +50,7 @@ function show() {
 
 <template>
   <OnClickOutside @trigger="hide">
-    <div class="w-72 relative">
+    <div class="w-full relative">
       <input
         type="text"
         placeholder="Company name"

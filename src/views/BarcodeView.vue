@@ -28,10 +28,7 @@ function load() {
       <h1 class="text-3xl text-primary text-center font-extrabold">Boycott for Palestine</h1>
       <div class="divider w-full" />
     </div>
-    <div
-      v-if="!loaded"
-      class="skeleton w-full h-full sm:max-h-[64rem] sm:max-w-lg mb-16 rounded-box"
-    />
+    <div v-if="!loaded" class="skeleton w-full h-full sm:max-h-[64rem] sm:max-w-lg rounded-box" />
     <div class="sm:max-w-lg rounded-box w-full mb-16 overflow-hidden">
       <StreamBarcodeReader
         class="w-fit h-fit"

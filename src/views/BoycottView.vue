@@ -35,7 +35,7 @@ const { data: boycottEntry } = useEntry(id)
         </p>
         <div
           v-else
-          class="skeleton w-full max-w-screen-lg h-4 mb-2"
+          class="skeleton w-full max-w-screen-lg h-4 mb-2 mx-auto"
           v-for="idx in 5"
           :key="idx"
         ></div>

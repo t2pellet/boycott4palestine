@@ -26,7 +26,7 @@ function load() {
     <div class="flex flex-col justify-center items-center relative w-full flex-grow">
       <div
         v-if="!loaded"
-        class="skeleton mx-auto my-auto w-full h-[90%] sm:max-h-[22rem] sm:max-w-lg rounded-box"
+        class="skeleton mx-auto my-auto w-full h-full sm:max-h-[22rem] sm:max-w-lg rounded-box"
       />
       <div class="sm:max-w-lg rounded-box w-full mb-16 overflow-hidden">
         <StreamBarcodeReader
@@ -36,6 +36,8 @@ function load() {
         ></StreamBarcodeReader>
       </div>
     </div>
-    <RouterLink to="/" class="btn btn-outline btn-wide mx-auto">Back</RouterLink>
+    <RouterLink to="/" class="absolute bottom-8 btn btn-outline btn-wide mx-auto left-0 right-0"
+      >Back</RouterLink
+    >
   </DefaultLayout>
 </template>

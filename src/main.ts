@@ -6,6 +6,7 @@ import router from './router'
 import { VueQueryPlugin, type VueQueryPluginOptions } from '@tanstack/vue-query'
 import { persistQueryClient } from '@tanstack/query-persist-client-core'
 import { createSyncStoragePersister } from '@tanstack/query-sync-storage-persister'
+import VueTablerIcons from 'vue-tabler-icons'
 
 // Query
 const queryOptions: VueQueryPluginOptions = {
@@ -30,4 +31,5 @@ const app = createApp(App)
 
 app.use(router)
 app.use(VueQueryPlugin, queryOptions)
+app.use(VueTablerIcons)
 app.mount('#app')

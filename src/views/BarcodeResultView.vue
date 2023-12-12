@@ -30,7 +30,7 @@ watchEffect(() => {
       <img
         class="h-32 shadow-xl rounded-box mb-4"
         v-if="barcodeData"
-        src="/logo.png"
+        src="/palestine-flag-wide.png"
         alt="Company Logo"
       />
       <div class="skeleton w-32 h-32 mb-4" v-else />

@@ -5,6 +5,7 @@ import type { BoycottName } from '@/types'
 import { search } from '@/util/filter'
 import { useRouter } from 'vue-router'
 import { useNames } from '@/api/query'
+import { SearchIcon } from 'vue-tabler-icons'
 
 const router = useRouter()
 
@@ -47,15 +48,18 @@ function show() {
 <template>
   <OnClickOutside @trigger="hide">
     <div class="w-full relative">
-      <input
-        type="text"
-        placeholder="Company name"
-        v-model="input"
-        @keyup.enter="submit"
-        @keyup="updateSearch"
-        @focus="show"
-        class="input input-bordered w-full"
-      />
+      <div class="w-full relative">
+        <input
+          type="text"
+          placeholder="Search for a boycotted company"
+          v-model="input"
+          @keyup.enter="submit"
+          @keyup="updateSearch"
+          @focus="show"
+          class="input input-bordered w-full input-md !pl-11 !h-11 rounded-box"
+        />
+        <SearchIcon class="absolute left-0 top-0 bottom-0 my-auto ml-3" />
+      </div>
       <div v-if="state.showing && !state.empty" class="relative bottom-[-0.25rem] h-0">
         <div class="absolute bg-base-200 w-full flex flex-col gap-2 rounded-lg p-2 z-20">
           <a

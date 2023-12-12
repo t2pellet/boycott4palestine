@@ -30,7 +30,11 @@ function submit(company: string, product: string) {
 <template>
   <div id="boycott" class="h-full">
     <div id="logo" class="flex flex-col h-1/3 justify-end items-center">
-      <img class="h-32 shadow-xl rounded-box mb-4" src="/logo.png" alt="Company Logo" />
+      <img
+        class="h-32 shadow-xl rounded-box mb-4"
+        src="/palestine-flag-wide.png"
+        alt="Company Logo"
+      />
       <h1 class="text-primary font-extrabold text-3xl">Boycott for Palestine</h1>
       <div class="divider" />
     </div>

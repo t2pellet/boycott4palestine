@@ -6,7 +6,7 @@ defineProps<{ entry: BoycottEntry }>()
 
 <template>
   <RouterLink
-    class="card bg-base-200/20 shadow-xl w-48 h-64 carousel-item focus:scale-105 hover:scale-105 transition-transform duration-300 transition-all"
+    class="card bg-base-200/60 shadow-lg w-48 h-64 carousel-item focus:scale-105 hover:scale-105 transition-transform duration-300 transition-all"
     :to="`/boycott/${entry.id}`"
   >
     <div class="card-body text-center items-center pt-3 pb-4">

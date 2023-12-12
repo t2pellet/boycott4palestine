@@ -511,6 +511,18 @@
   resolved "https://registry.yarnpkg.com/@rushstack/eslint-patch/-/eslint-patch-1.6.0.tgz#1898e7a7b943680d757417a47fb10f5fcc230b39"
   integrity sha512-2/U3GXA6YiPYQDLGwtGlnNgKYBSwCFIHf8Y9LUY5VATHdtbLlU0Y1R3QoBnT0aB4qv/BEiVVsj7LJXoQCgJ2vA==
 
+"@tabler/icons-vue@^2.44.0":
+  version "2.44.0"
+  resolved "https://registry.yarnpkg.com/@tabler/icons-vue/-/icons-vue-2.44.0.tgz#8d296e5fede6ae896ba9169f0008cebd0b752309"
+  integrity sha512-7SpRS9hQ0VEKSHQNGNjVedgiU2dRtpcZvD5l5MgKBnwGPR3dq/Y3RNQOq2k2IjCQj3p21nj/zd9giR5RTdgTxQ==
+  dependencies:
+    "@tabler/icons" "2.44.0"
+
+"@tabler/icons@2.44.0":
+  version "2.44.0"
+  resolved "https://registry.yarnpkg.com/@tabler/icons/-/icons-2.44.0.tgz#9f3cf86150b23e84a6eaf9d29ab2b2aaa8c7eed6"
+  integrity sha512-WPPtihDcAwEm1QZM9MXQw6+r/R2/qx7KMU1eegsi9DsqBLAb0W2kbt6e/syvd6j9c+6XNpRVBW1ziGqSWQAWOg==
+
 "@tanstack/match-sorter-utils@^8.8.4":
   version "8.8.4"
   resolved "https://registry.yarnpkg.com/@tanstack/match-sorter-utils/-/match-sorter-utils-8.8.4.tgz#0b2864d8b7bac06a9f84cb903d405852cc40a457"
@@ -598,6 +610,13 @@
   version "0.0.3"
   resolved "https://registry.yarnpkg.com/@types/vue-barcode-reader/-/vue-barcode-reader-0.0.3.tgz#3e11ae8d303547afb274a52d4a048f7f196c2eb5"
   integrity sha512-klrzMKXdc1eHFnMQXl5QwTGuKki09hh+hxV0AlNjg72VpMRifEbW+roGbDK0LHCK+LTcz13Ebx2/bMKgQr0Ovw==
+  dependencies:
+    vue "^2.0.0"
+
+"@types/vue-feather-icons@^5.0.8":
+  version "5.0.8"
+  resolved "https://registry.yarnpkg.com/@types/vue-feather-icons/-/vue-feather-icons-5.0.8.tgz#4c6e82309abafd5eee5a3e11519772035d801aea"
+  integrity sha512-oECs4cljBWswZ25T1s7pWJiVhk2TIl0bx82UmnYLKXHSFuMPGD18uaZ2/DRTTegSP7Do/cDUdmYtpVw5BogAVA==
   dependencies:
     vue "^2.0.0"
 
@@ -2823,6 +2842,11 @@ vue-router@^4.2.5:
   integrity sha512-DIUpKcyg4+PTQKfFPX88UWhlagBEBEfJ5A8XDXRJLUnZOvcpMF8o/dnL90vpVkGaPbjvXazV/rC1qBKrZlFugw==
   dependencies:
     "@vue/devtools-api" "^6.5.0"
+
+vue-tabler-icons@^2.21.0:
+  version "2.21.0"
+  resolved "https://registry.yarnpkg.com/vue-tabler-icons/-/vue-tabler-icons-2.21.0.tgz#b4f42285a4cd6ca6c8b986299732d2c0cfa4f2b1"
+  integrity sha512-rEZYPd37j1sd/9gBFtC1u8wj3Pz1S3gLP1tgexvnivzQPXphc6M+7XuTSOd7wtdpaLt1sQgDmuQxIgczzrvf0A==
 
 vue-template-compiler@^2.7.14:
   version "2.7.15"

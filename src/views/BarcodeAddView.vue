@@ -14,16 +14,15 @@ const { mutate: addBarcode, isSuccess, isPending } = useAddBarcode()
 const { data: checkData } = useCheckBarcode(barcode)
 
 watchEffect(() => {
-  if (!validate(barcode) || checkData.value?.cached) {
+  if (!validate(barcode)) {
     router.replace('/')
   }
-  if (isSuccess.value) {
+  if (checkData.value?.cached || isSuccess.value) {
     router.replace(`/scan-result?barcode=${barcode}`)
   }
 })
 
 function submit(company: string, product: string) {
-  console.log('submit')
   addBarcode({ company, product, barcode })
 }
 </script>

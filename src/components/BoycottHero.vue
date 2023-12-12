@@ -29,12 +29,12 @@
         </div>
         <div class="flex flex-col sm:flex-row gap-4 items-center justify-center">
           <a
-            class="btn btn-secondary btn-wide sm:w-40"
+            class="btn btn-secondary btn-wide sm:w-40 max-w-full"
             href="https://remix.aljazeera.com/aje/PalestineRemix/timeline_main.html"
             target="_blank"
             >What's going on?</a
           >
-          <RouterLink class="btn btn-primary btn-wide sm:w-40" to="/scan">
+          <RouterLink class="btn btn-primary btn-wide sm:w-40 max-w-full" to="/scan">
             Scan Barcode
           </RouterLink>
         </div>

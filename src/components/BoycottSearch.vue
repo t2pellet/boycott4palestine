@@ -56,14 +56,14 @@ function show() {
           @keyup.enter="submit"
           @keyup="updateSearch"
           @focus="show"
-          class="input input-bordered w-full input-lg sm:input-md !pl-11 !text-base !h-14 sm:!h-11 rounded-box"
+          class="input input-bordered w-full input-lg sm:input-md !text-base sm:!text-sm !pl-11 !h-11 rounded-box"
         />
         <SearchIcon class="absolute left-0 top-0 bottom-0 my-auto ml-3" />
       </div>
       <div v-if="state.showing && !state.empty" class="relative bottom-[-0.25rem] h-0">
         <div class="absolute bg-base-200 w-full flex flex-col gap-2 rounded-lg p-2 z-20">
           <a
-            class="btn btn-ghost min-h-[2rem] h-8"
+            class="btn btn-ghost min-h-[2rem] h-12 sm:h-8 text-base sm:text-sm"
             v-for="name in names"
             :key="name.name"
             :href="`/boycott/${name.id}`"
@@ -72,7 +72,7 @@ function show() {
           </a>
           <div
             v-if="!state.empty && !names.length"
-            class="text-success font-bold text-center leading-8 text-sm"
+            class="text-success font-bold text-center leading-8 text-base sm:text-sm"
           >
             No boycotted company found
           </div>

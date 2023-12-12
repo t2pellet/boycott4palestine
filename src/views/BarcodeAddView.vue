@@ -11,7 +11,7 @@ const route = useRoute()
 const router = useRouter()
 const barcode = route.query.barcode as string
 const { mutate: addBarcode, data: addStatus } = useAddBarcode()
-const { data: checkData } = useCheckBarcode(barcode)
+const { data: checkData, isPending } = useCheckBarcode(barcode)
 
 watchEffect(() => {
   if (!validate(barcode)) {

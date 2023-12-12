@@ -29,11 +29,11 @@ function toggleState() {
 <template>
   <DefaultLayout id="scan">
     <div
-      class="sm:grid sm:grid-cols-2 max-w-screen-lg flex-grow sm:flex-grow-0 w-full sm:w-auto sm:h-fit pt-8 pb-16 mx-auto gap-8"
+      class="sm:grid sm:grid-cols-2 max-w-screen-lg flex-grow sm:flex-grow-0 w-full sm:w-auto sm:h-fit pt-2 sm:pt-8 pb-16 mx-auto gap-8"
     >
       <div
         :class="state == 'manual' && 'hidden'"
-        class="flex flex-col gap-3 items-center relative w-full flex-grow sm:!flex"
+        class="flex flex-col gap-3 items-center relative w-full h-full flex-grow sm:!flex"
       >
         <h2 class="text-lg text-secondary text-center hidden sm:inline font-bold">Scan barcode</h2>
         <div

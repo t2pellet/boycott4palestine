@@ -29,7 +29,7 @@ import { Menu2Icon } from 'vue-tabler-icons'
           </li>
         </ul>
       </div>
-      <div class="flex flex-col h-full gap-8 px-4 pt-4 pb-12">
+      <div class="flex flex-col h-full gap-6 px-4 pt-4 pb-12">
         <slot />
       </div>
     </div>

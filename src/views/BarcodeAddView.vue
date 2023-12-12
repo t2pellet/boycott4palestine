@@ -10,14 +10,16 @@ import { useCheckBarcode } from '@/api/query'
 const route = useRoute()
 const router = useRouter()
 const barcode = route.query.barcode as string
-const { mutate: addBarcode, isSuccess, isPending } = useAddBarcode()
+const { mutate: addBarcode, data: addStatus } = useAddBarcode()
 const { data: checkData } = useCheckBarcode(barcode)
 
 watchEffect(() => {
   if (!validate(barcode)) {
     router.replace('/')
   }
-  if (checkData.value?.cached || isSuccess.value) {
+})
+watchEffect(() => {
+  if (checkData.value?.cached || addStatus.value === 200) {
     router.replace(`/scan-result?barcode=${barcode}`)
   }
 })

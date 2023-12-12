@@ -8,6 +8,7 @@ const client = axios.create({
 })
 
 function useAddBarcode(): UseMutationReturnType<number, any, BarcodeData, any> {
+  const queryClient = useQueryClient()
   return useMutation({
     mutationFn: async (barcode: BarcodeData) => {
       if (validate(barcode.barcode)) {
@@ -17,7 +18,6 @@ function useAddBarcode(): UseMutationReturnType<number, any, BarcodeData, any> {
       return 400
     },
     onSuccess: () => {
-      const queryClient = useQueryClient()
       queryClient.invalidateQueries({ queryKey: ['checkBarcode'] })
       queryClient.invalidateQueries({ queryKey: ['barcode'] })
     }

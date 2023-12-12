@@ -37,7 +37,7 @@ function submit(company: string, product: string) {
       class="mb-4"
       text="What brand is this?"
     />
-    <RouterLink class="btn btn-outline btn-wide" to="/">Home</RouterLink>
+    <RouterLink class="btn btn-outline btn-wide mx-auto" to="/">Home</RouterLink>
   </DefaultLayout>
 </template>
 

@@ -56,7 +56,7 @@ function show() {
           @keyup.enter="submit"
           @keyup="updateSearch"
           @focus="show"
-          class="input input-bordered w-full input-md !pl-11 !h-11 rounded-box"
+          class="input input-bordered w-full input-lg sm:input-md !pl-11 !text-base !h-14 sm:!h-11 rounded-box"
         />
         <SearchIcon class="absolute left-0 top-0 bottom-0 my-auto ml-3" />
       </div>

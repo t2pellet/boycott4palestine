@@ -52,7 +52,8 @@ function useCheckBarcode(barcode: string): UseQueryReturnType<BarcodeCheck, any>
     queryFn: async () => {
       const result = await client.get(`/barcode/exists/${barcode}`)
       return result.data as BarcodeCheck
-    }
+    },
+    staleTime: 0
   })
 }
 

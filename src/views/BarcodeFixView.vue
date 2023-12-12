@@ -3,7 +3,7 @@ import { useRoute, useRouter } from 'vue-router'
 import { watchEffect } from 'vue'
 import { validate } from 'barcoder'
 import { useFixBarcode } from '@/api/mutate'
-import BarcodeAddForm from '@/components/BarcodeAddForm.vue'
+import BarcodeAddForm from '@/components/form/BarcodeAddForm.vue'
 import { useBarcode } from '@/api/query'
 import DefaultLayout from '@/layouts/DefaultLayout.vue'
 

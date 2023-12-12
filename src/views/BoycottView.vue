@@ -23,7 +23,7 @@ const { data: boycottEntry } = useEntry(id)
         {{ boycottEntry.name }}
       </h1>
       <div class="skeleton w-64 h-8" v-else />
-      <div class="divider" />
+      <div class="divider mb-0" />
     </div>
     <div id="content" class="flex flex-col items-center justify-between text-center h-2/5 gap-8">
       <div id="reason" class="w-full">

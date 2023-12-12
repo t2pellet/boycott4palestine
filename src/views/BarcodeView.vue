@@ -24,7 +24,7 @@ function load() {
   <div id="barcode" class="flex flex-col py-8 items-center h-full">
     <img
       src="/logo.png"
-      class="h-32 shadow-xl rounded-box mb-4 hidden sm:inline-block"
+      class="h-16 sm:h-32 shadow-xl rounded-box mb-4 hidden sm:inline-block"
       alt="Palestine Flag"
     />
     <div class="hidden sm:inline-block w-full">
@@ -39,6 +39,6 @@ function load() {
         @loaded="load"
       ></StreamBarcodeReader>
     </div>
-    <RouterLink class="absolute bottom-8 btn btn-outline btn-wide" to="/">Back</RouterLink>
+    <RouterLink class="absolute bottom-6 btn btn-outline btn-wide" to="/">Back</RouterLink>
   </div>
 </template>

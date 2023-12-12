@@ -22,11 +22,7 @@ function load() {
 
 <template>
   <div id="barcode" class="flex flex-col py-8 items-center h-full">
-    <img
-      src="/logo.png"
-      class="h-16 sm:h-32 shadow-xl rounded-box mb-4 hidden sm:inline-block"
-      alt="Palestine Flag"
-    />
+    <img src="/logo.png" class="h-16 sm:h-32 shadow-xl rounded-box mb-4" alt="Palestine Flag" />
     <div class="hidden sm:inline-block w-full">
       <h1 class="text-3xl text-primary text-center font-extrabold">Boycott for Palestine</h1>
       <div class="divider w-full" />

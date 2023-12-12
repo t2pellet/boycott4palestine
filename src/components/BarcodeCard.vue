@@ -17,7 +17,7 @@ defineProps<{ entry: BoycottBarcode }>()
       </p>
     </div>
     <figure class="rounded-box w-fit max-w-[10.5rem] mx-auto">
-      <img :src="entry.logo" alt="Logo" />
+      <img :src="entry.logo || '/free-palestine.webp'" alt="Logo" />
     </figure>
   </component>
 </template>

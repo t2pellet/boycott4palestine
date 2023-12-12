@@ -16,7 +16,6 @@ function decode(barcode: string) {
 }
 
 function load() {
-  console.log('loaded')
   loaded.value = true
 }
 </script>

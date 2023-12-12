@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useEntry } from '@/api/query'
 import { useRoute } from 'vue-router'
+import DefaultLayout from '@/layouts/DefaultLayout.vue'
 
 const route = useRoute()
 const id = Number(route.params.id)
@@ -9,7 +10,7 @@ const { data: boycottEntry } = useEntry(id)
 </script>
 
 <template>
-  <div id="boycott" class="h-full">
+  <DefaultLayout id="boycott">
     <div id="logo" class="flex flex-col h-1/3 justify-end items-center">
       <img
         class="h-32 shadow-xl rounded-box mb-4"
@@ -24,12 +25,9 @@ const { data: boycottEntry } = useEntry(id)
       <div class="skeleton w-64 h-8" v-else />
       <div class="divider" />
     </div>
-    <div
-      id="content"
-      class="flex flex-col items-center justify-between text-center h-2/5 gap-8 pt-8"
-    >
+    <div id="content" class="flex flex-col items-center justify-between text-center h-2/5 gap-8">
       <div id="reason" class="w-full">
-        <h2 class="text-secondary font-bold text-xl mb-2">Reason</h2>
+        <h2 class="text-secondary font-bold text-xl mb-2">Boycotted</h2>
         <p class="text-sm max-w-screen-lg mx-auto" v-if="boycottEntry">
           {{ boycottEntry.reason }}
         </p>
@@ -47,7 +45,7 @@ const { data: boycottEntry } = useEntry(id)
         <RouterLink id="back" to="/" class="btn btn-outline btn-wide">Back</RouterLink>
       </div>
     </div>
-  </div>
+  </DefaultLayout>
 </template>
 
 <style scoped></style>

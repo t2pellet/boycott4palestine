@@ -3,6 +3,7 @@ import { StreamBarcodeReader } from 'vue-barcode-reader'
 import { type Ref, ref } from 'vue'
 import { validate } from 'barcoder'
 import { useRouter } from 'vue-router'
+import DefaultLayout from '@/layouts/DefaultLayout.vue'
 
 const loaded = ref(false)
 const result: Ref<string | undefined> = ref()
@@ -21,24 +22,20 @@ function load() {
 </script>
 
 <template>
-  <div id="barcode" class="flex flex-col py-8 items-center h-full">
-    <img
-      src="/palestine-flag-wide.png"
-      class="h-16 sm:h-32 shadow-xl rounded-box mb-4"
-      alt="Palestine Flag"
-    />
-    <div class="hidden sm:inline-block w-full">
-      <h1 class="text-3xl text-primary text-center font-extrabold">Boycott for Palestine</h1>
-      <div class="divider w-full" />
+  <DefaultLayout id="scan">
+    <div class="flex flex-col justify-center items-center relative w-full flex-grow">
+      <div
+        v-if="!loaded"
+        class="skeleton mx-auto my-auto w-full h-[90%] sm:max-h-[22rem] sm:max-w-lg rounded-box"
+      />
+      <div class="sm:max-w-lg rounded-box w-full mb-16 overflow-hidden">
+        <StreamBarcodeReader
+          class="w-fit h-fit"
+          @decode="decode"
+          @loaded="load"
+        ></StreamBarcodeReader>
+      </div>
     </div>
-    <div v-if="!loaded" class="skeleton w-full h-full sm:max-h-[64rem] sm:max-w-lg rounded-box" />
-    <div class="sm:max-w-lg rounded-box w-full mb-16 overflow-hidden">
-      <StreamBarcodeReader
-        class="w-fit h-fit"
-        @decode="decode"
-        @loaded="load"
-      ></StreamBarcodeReader>
-    </div>
-    <RouterLink class="absolute bottom-6 btn btn-outline btn-wide" to="/">Back</RouterLink>
-  </div>
+    <RouterLink to="/" class="btn btn-outline btn-wide mx-auto">Back</RouterLink>
+  </DefaultLayout>
 </template>

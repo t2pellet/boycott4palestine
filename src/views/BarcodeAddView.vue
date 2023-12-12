@@ -4,18 +4,19 @@ import { watchEffect } from 'vue'
 import { validate } from 'barcoder'
 import { useAddBarcode } from '@/api/mutate'
 import BarcodeAddForm from '@/components/BarcodeAddForm.vue'
+import DefaultLayout from '@/layouts/DefaultLayout.vue'
+import { useCheckBarcode } from '@/api/query'
 
 const route = useRoute()
 const router = useRouter()
 const barcode = route.query.barcode as string
 const { mutate: addBarcode, isSuccess, isPending } = useAddBarcode()
+const { data: checkData } = useCheckBarcode(barcode)
 
 watchEffect(() => {
-  if (!validate(barcode)) {
+  if (!validate(barcode) || checkData.value?.cached) {
     router.replace('/')
   }
-})
-watchEffect(() => {
   if (isSuccess.value) {
     router.replace(`/scan-result?barcode=${barcode}`)
   }
@@ -28,16 +29,7 @@ function submit(company: string, product: string) {
 </script>
 
 <template>
-  <div id="boycott" class="h-full">
-    <div id="logo" class="flex flex-col h-1/3 justify-end items-center">
-      <img
-        class="h-32 shadow-xl rounded-box mb-4"
-        src="/palestine-flag-wide.png"
-        alt="Company Logo"
-      />
-      <h1 class="text-primary font-extrabold text-3xl">Boycott for Palestine</h1>
-      <div class="divider" />
-    </div>
+  <DefaultLayout id="boycott">
     <div
       id="content"
       class="flex flex-col items-center justify-between text-center h-2/5 gap-8 pt-8"
@@ -53,7 +45,7 @@ function submit(company: string, product: string) {
         <RouterLink class="btn btn-outline btn-wide" to="/">Home</RouterLink>
       </div>
     </div>
-  </div>
+  </DefaultLayout>
 </template>
 
 <style scoped></style>

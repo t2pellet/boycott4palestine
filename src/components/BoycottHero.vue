@@ -1,6 +1,6 @@
 <template>
   <div class="relative hero max-w-full md:max-w-screen-lg">
-    <div class="hero-content max-w-full overflow-hidden md:gap-8">
+    <div class="hero-content pt-0 max-w-full overflow-hidden md:gap-8">
       <img
         src="/palestine-flag.png"
         class="hidden sm:flex rounded-3xl shadow-lg w-1/3"

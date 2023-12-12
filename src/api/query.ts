@@ -50,7 +50,8 @@ function useCheckBarcode(barcode: string): UseQueryReturnType<BarcodeCheck, any>
   return useQuery({
     queryKey: ['checkBarcode', barcode],
     queryFn: async () => {
-      const result = await client.get(`/barcode/check/${barcode}`)
+      const result = await client.get(`/barcode/exists/${barcode}`)
+      return result.data as BarcodeCheck
     }
   })
 }

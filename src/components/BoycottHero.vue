@@ -24,7 +24,8 @@
             Israel continues to commit <b>genocide</b> against the Palestinian people. This website
             aims to serve as a tool to <b>boycott</b> companies supporting Israel and it's reign of
             terror.<br /><br />
-            Search for a company or scan a barcode.
+            Search for a company or
+            <RouterLink to="/scan" class="font-bold">scan a barcode</RouterLink>.
           </p>
         </div>
         <div class="flex flex-col sm:flex-row gap-4 items-center justify-center">

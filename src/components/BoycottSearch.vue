@@ -33,14 +33,10 @@ function updateSearch(e: Event) {
     return
   } else state.value.empty = false
   names.value = search(value, entries.value || [])
-  console.log(JSON.stringify(state.value))
-  console.log(names.value)
 }
 
 function hide() {
-  if (state.value.empty || names.value.length) {
-    state.value.showing = false
-  }
+  state.value.showing = false
 }
 
 function show() {
@@ -60,14 +56,8 @@ function show() {
         @focus="show"
         class="input input-bordered w-full"
       />
-      <div
-        v-if="state.showing && (!state.pending || names.length)"
-        class="relative bottom-[-0.25rem] h-0"
-      >
-        <div
-          v-if="!state.empty"
-          class="absolute bg-base-200 w-full flex flex-col gap-2 rounded-lg p-2 z-20"
-        >
+      <div v-if="state.showing && !state.empty" class="relative bottom-[-0.25rem] h-0">
+        <div class="absolute bg-base-200 w-full flex flex-col gap-2 rounded-lg p-2 z-20">
           <a
             class="btn btn-ghost min-h-[2rem] h-8"
             v-for="name in names"
@@ -77,8 +67,8 @@ function show() {
             {{ name.name }}
           </a>
           <div
-            v-if="!state.empty && !state.pending && !names.length"
-            class="text-success text-center"
+            v-if="!state.empty && !names.length"
+            class="text-success font-bold text-center leading-8 text-sm"
           >
             No boycotted company found
           </div>

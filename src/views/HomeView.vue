@@ -8,7 +8,7 @@ import BoycottHero from '@/components/BoycottHero.vue'
 <template>
   <DefaultLayout id="home">
     <BoycottHero link="#list" label="Get Boycotting" class="mx-auto" />
-    <BoycottSearch id="search" class="md:hidden w-96 max-w-full mb-2" />
+    <BoycottSearch id="search" class="md:hidden w-96 max-w-full mb-2 mx-auto" />
     <div id="list" class="flex flex-col items-center flex-grow overflow-hidden">
       <h2 class="text-xl text-center font-bold mb-2">Worst Offenders</h2>
       <BoycottCarousel />

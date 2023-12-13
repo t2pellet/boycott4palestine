@@ -19,9 +19,9 @@ function onSubmit() {
   <form
     id="barcodeForm"
     @submit.prevent="onSubmit"
-    class="relative flex flex-col items-center gap-4"
+    class="relative flex flex-col items-center gap-4 bg-base-200/40 rounded-box p-4"
   >
-    <h2 class="text-lg font-bold text-secondary text-center">
+    <h2 class="text-lg font-bold text-secondary text-center hidden sm:inline">
       {{ $props.text }}
     </h2>
     <div class="form-control">

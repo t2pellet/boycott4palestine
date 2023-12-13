@@ -10,3 +10,8 @@ declare global {
 declare module 'barcoder' {
   function validate(barcode: string): boolean
 }
+
+declare module '@teckel/vue-barcode-reader' {
+  export class StreamBarcodeReader extends Vue {}
+  export class ImageBarcodeReader extends Vue {}
+}

@@ -16,6 +16,7 @@
     "@tanstack/query-sync-storage-persister": "^5.12.1",
     "@tanstack/react-query-persist-client": "^5.12.2",
     "@tanstack/vue-query": "^5.12.2",
+    "@teckel/vue-barcode-reader": "^1.1.6",
     "@vueuse/components": "^10.7.0",
     "@vueuse/core": "^10.7.0",
     "axios": "^1.6.2",
@@ -23,7 +24,6 @@
     "fuzzball": "^2.1.2",
     "lodash.debounce": "^4.0.8",
     "vue": "^3.3.4",
-    "vue-barcode-reader": "^1.0.3",
     "vue-router": "^4.2.5",
     "vue-tabler-icons": "^2.21.0"
   },

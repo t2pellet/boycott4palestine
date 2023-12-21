@@ -2,6 +2,7 @@
 import PalestineAnchor from '@/components/nav/PalestineAnchor.vue'
 import BoycottSearch from '@/components/BoycottSearch.vue'
 import { Menu2Icon } from 'vue-tabler-icons'
+import ThemeToggle from '@/components/ThemeToggle.vue'
 </script>
 <template>
   <main class="drawer h-full">
@@ -17,15 +18,18 @@ import { Menu2Icon } from 'vue-tabler-icons'
           <PalestineAnchor />
           <BoycottSearch class="hidden md:flex w-72" />
         </div>
-        <ul class="menu menu-horizontal px-1 text-primary flex-nowrap hidden md:inline-flex">
-          <li>
+        <ul class="menu menu-horizontal px-1 text-primary flex-nowrap">
+          <li class="hidden md:inline-block">
             <RouterLink to="/scan">Scan Barcode</RouterLink>
           </li>
-          <li>
+          <li class="hidden md:inline-block">
             <a href="https://samidoun.net/category/take-action/" target="_blank">Take Action</a>
           </li>
-          <li>
+          <li class="hidden md:inline-block">
             <a href="https://support.anera.org/a/donate" target="_blank">Donate</a>
+          </li>
+          <li class="lg:ml-4">
+            <ThemeToggle />
           </li>
         </ul>
       </div>

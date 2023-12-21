@@ -12,6 +12,6 @@ defineProps<{ entry: BoycottEntry }>()
     <div class="card-body text-center items-center pt-3 pb-4">
       <h2 class="card-title text-secondary">{{ entry.name }}</h2>
     </div>
-    <figure class="rounded-box"><img :src="entry.logo" alt="Logo" /></figure>
+    <figure class="rounded-box"><img :src="entry.logo" class="bg-white" alt="Logo" /></figure>
   </RouterLink>
 </template>

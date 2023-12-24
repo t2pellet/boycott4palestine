@@ -8,7 +8,7 @@ const { data: entries, isLoading } = useEntries()
 <template>
   <div
     v-if="!isLoading"
-    class="carousel carousel-center rounded-box max-w-screen-lg w-screen space-x-4 flex-grow py-4"
+    class="carousel carousel-center md:snap-none md:carousel- rounded-box max-w-screen-lg w-screen space-x-4 flex-grow py-4"
   >
     <BoycottCard v-for="entry in entries" :key="`card-${entry.id}`" :entry="entry" />
   </div>

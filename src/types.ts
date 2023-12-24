@@ -1,7 +1,6 @@
 export type BoycottEntry = {
   name: string
   id: number
-  description?: string
   reason: string
   proof: string
   logo: string
@@ -31,4 +30,11 @@ export type BarcodeData = {
 export type BarcodeCheck = {
   barcode: string
   cached: boolean
+}
+
+export type AddBoycottData = {
+  name: string
+  reason: string
+  proof: string
+  logo: string
 }

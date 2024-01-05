@@ -25,6 +25,7 @@ function useAddBarcode(): UseMutationReturnType<number, any, BarcodeData, any> {
 }
 
 function useFixBarcode(): UseMutationReturnType<number, any, BarcodeData, any> {
+  const queryClient = useQueryClient()
   return useMutation({
     mutationFn: async (barcode: BarcodeData) => {
       if (validate(barcode.barcode)) {
@@ -32,6 +33,10 @@ function useFixBarcode(): UseMutationReturnType<number, any, BarcodeData, any> {
         return result.status
       }
       return 400
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ['checkBarcode'] })
+      queryClient.invalidateQueries({ queryKey: ['barcode'] })
     }
   })
 }
